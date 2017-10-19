@@ -1,0 +1,24 @@
+{
+    "author": "Summer Sun",
+    "classifications": ["Console"],
+    "name": "Azure IoT Edge Function",
+    "identity": "Azure.IoT.Edge.Function.CSharp",
+    "groupIdentity": "Azure.IoT.Edge.Function",
+    "shortName": "aziotedgefunction",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "preferNameDirectory": "true",
+    "sourceName": "SampleAzureFunction",
+    "primaryOutputs": [{
+        "path": ""
+    }],
+    "symbols": {
+        "linux-x64": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true"
+        }
+    }
+}

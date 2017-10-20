@@ -20,5 +20,12 @@
             "datatype": "bool",
             "defaultValue": "true"
         }
-    }
+    },
+    "sources":[{
+        "modifiers": [{
+          "condition": "true",
+          "include": [ "bin/extension.json"]
+          }
+        ]
+      }]
 }

@@ -185,7 +185,7 @@ docker run -d -p 5000:5000 --name registry registry:2
 Navigate to the directory we just created, let's take linux-x64 for example:
 
 ```
-docker build -f Docker\linux-x64\Dockerfile —build-arg EXE_DIR=. -t localhost:5000/<lower_case_image_name>:latest .
+docker build -f Docker\linux-x64\Dockerfile --build-arg EXE_DIR=. -t localhost:5000/<lower_case_image_name>:latest .
 ```
 
 ### Push the image to local registry

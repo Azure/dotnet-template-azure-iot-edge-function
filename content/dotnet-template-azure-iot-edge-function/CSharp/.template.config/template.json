@@ -24,7 +24,7 @@
     "sources":[{
         "modifiers": [{
           "condition": "true",
-          "include": [ "bin/extension.json"]
+          "include": [ "bin/*"]
           }
         ]
       }]

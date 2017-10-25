@@ -11,9 +11,9 @@ This ReadMe consists of two parts:
 
 ## Get Started
 
-Make sure you have [Nuget](https://www.nuget.org/) installed.
+Make sure you have [.NET Core SDK](https://www.microsoft.com/net/core#windowscmd) and [Nuget](https://www.nuget.org/) installed.
 
-Run following command to add the template nuget source:
+Run following command to add the nuget source:
 
 - For NuGet V3
 ```
@@ -26,27 +26,10 @@ nuget sources add -name AzureIoTEdgeFunction -source https://www.myget.org/F/dot
 nuget sources add -name AzureIoTEdgeFunction -source https://www.myget.org/F/dotnet-template-azure-iot-edge-function/api/v2
 ```
 
-Check the nuget source is added successfully and enabled by executing command **nuget sources**, check the output:
+Run dotnet command to install the template:
 
 ```
-Registered Sources:
-
-  1.  nuget.org [Enabled]
-      https://api.nuget.org/v3/index.json
-  2.  https://www.nuget.org/api/v2/ [Disabled]
-      https://www.nuget.org/api/v2/
-  3.  AzureIoTEdgeFunction [Enabled]
-      https://www.myget.org/F/dotnet-template-azure-iot-edge-function/api/v2
-```
-
-Install the nuget package:
-```
-nuget install Azure.IoT.Edge.Function
-```
-You will get a new folder with name *Azure.IoT.Edge.Function.0.0.1*, check out the content in this folder, run dotnet command to install the template with correct path:
-
-```
-dotnet new -i <.\Azure.IoT.Edge.Function.0.0.1\dotnet-template-azure-iot-edge-function\CSharp\>
+dotnet new -i Azure.IoT.Edge.Function
 ```
 You could find our template with short name *aziotedgefunction* in the output:
 

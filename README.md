@@ -13,7 +13,7 @@ This ReadMe consists of two parts:
 
 Make sure you have [.NET Core SDK](https://www.microsoft.com/net/core#windowscmd) and [Nuget](https://www.nuget.org/) installed.
 
-Run following command to add the nuget source:
+Config the nuget source:
 
 - For NuGet V3
 ```
@@ -21,7 +21,6 @@ nuget sources add -name AzureIoTEdgeFunction -source https://www.myget.org/F/dot
 ```
 
 - For NuGet V2
-
 ```
 nuget sources add -name AzureIoTEdgeFunction -source https://www.myget.org/F/dotnet-template-azure-iot-edge-function/api/v2
 ```

@@ -15,6 +15,6 @@
     <tags>azure iot edge dotnet template</tags>
     </metadata>
     <files>
-      <file src="./content/**/*" />
+      <file src="content/**/*" />
     </files>
 </package>

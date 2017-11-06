@@ -14,10 +14,7 @@ public static async Task Run(Message messageReceived, IAsyncCollector<Message> o
     byte[] messageBytes = messageReceived.GetBytes();
     var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
 
-    // Get message body, containing the Temperature data         
-    var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-
-    if (messageBody != null)
+    if (!string.IsNullOrEmpty(messageString))
     {
         var pipeMessage = new Message(messageBytes);
         foreach (KeyValuePair<string, string> prop in messageReceived.Properties)

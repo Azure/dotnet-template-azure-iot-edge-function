@@ -1,15 +1,9 @@
-#r "Microsoft.WindowsAzure.Storage"
-#r "System.Text.Encoding"
 #r "Microsoft.Azure.Devices.Client"
-#r "System.IO"
-#r "Newtonsoft.Json"
 
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.Azure.Devices.Client;
 using System.IO;
-using Newtonsoft.Json;
+using Microsoft.Azure.Devices.Client;
 
-public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, ILogger log)
+public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, TraceWriter log)
 {
     byte[] messageBytes = messageReceived.GetBytes();
     var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
@@ -22,5 +16,6 @@ public static async Task Run(Message messageReceived, IAsyncCollector<Message> o
             pipeMessage.Properties.Add(prop.Key, prop.Value);
         }
         await output.AddAsync(pipeMessage);
+        log.Info("piped received message");
     }
 }

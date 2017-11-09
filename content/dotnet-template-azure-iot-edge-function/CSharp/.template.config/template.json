@@ -28,27 +28,50 @@
             "type": "parameter",
             "datatype": "bool",
             "defaultValue": "true"
+        },
+        "target": {
+            "type": "parameter",
+            "datatype": "choice",
+            "defaultValue": "All",
+            "choices": [
+                {
+                    "choice": "All"
+                },
+                {
+                    "choice": "Config"
+                }
+            ]
         }
     },
     "sources": [
         {
+            "exclude": [
+                "Docker/**/*", ".template.config/*", "bin/*"
+            ],
             "modifiers": [
                 {
-                    "condition": "true",
+                    "condition": "(target == 'All')",
                     "include": [
                         "bin/*"
                     ]
                 },
                 {
-                    "condition": "(!windows-nano)",
-                    "exclude": [
+                    "condition": "(windows-nano && target != 'Config')",
+                    "include": [
                         "Docker/windows-nano/*"
                     ]
                 },
                 {
-                    "condition": "(!linux-x64)",
-                    "exclude": [
+                    "condition": "(linux-x64 && target != 'Config')",
+                    "include": [
                         "Docker/linux-x64/*"
+                    ]
+                },
+                {
+                    "condition": "(target == 'Config')",
+                    "exclude": [
+                        "host.json",
+                        "EdgeHubTrigger-Csharp/**/*"
                     ]
                 }
             ]

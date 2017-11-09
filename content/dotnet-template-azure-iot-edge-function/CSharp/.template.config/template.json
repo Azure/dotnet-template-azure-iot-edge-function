@@ -1,6 +1,8 @@
 {
     "author": "Summer Sun",
-    "classifications": ["Console"],
+    "classifications": [
+        "Console"
+    ],
     "name": "Azure IoT Edge Function",
     "identity": "Azure.IoT.Edge.Function.CSharp",
     "groupIdentity": "Azure.IoT.Edge.Function",
@@ -11,21 +13,68 @@
     },
     "preferNameDirectory": "true",
     "sourceName": "SampleAzureFunction",
-    "primaryOutputs": [{
-        "path": ""
-    }],
+    "primaryOutputs": [
+        {
+            "path": ""
+        }
+    ],
     "symbols": {
         "linux-x64": {
             "type": "parameter",
             "datatype": "bool",
             "defaultValue": "true"
+        },
+        "windows-nano": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true"
+        },
+        "target": {
+            "type": "parameter",
+            "datatype": "choice",
+            "defaultValue": "All",
+            "choices": [
+                {
+                    "choice": "All"
+                },
+                {
+                    "choice": "Config"
+                }
+            ]
         }
     },
-    "sources":[{
-        "modifiers": [{
-          "condition": "true",
-          "include": [ "bin/*"]
-          }
-        ]
-      }]
+    "sources": [
+        {
+            "exclude": [
+                "Docker/**/*", ".template.config/*", "bin/*"
+            ],
+            "modifiers": [
+                {
+                    "condition": "(target == 'All')",
+                    "include": [
+                        "bin/*"
+                    ]
+                },
+                {
+                    "condition": "(windows-nano && target != 'Config')",
+                    "include": [
+                        "Docker/windows-nano/*"
+                    ]
+                },
+                {
+                    "condition": "(linux-x64 && target != 'Config')",
+                    "include": [
+                        "Docker/linux-x64/*"
+                    ]
+                },
+                {
+                    "condition": "(target == 'Config')",
+                    "exclude": [
+                        "host.json",
+                        "EdgeHubTrigger-Csharp/**/*"
+                    ]
+                }
+            ]
+        }
+    ]
 }

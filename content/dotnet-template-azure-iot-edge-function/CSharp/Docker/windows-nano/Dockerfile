@@ -1,7 +1,7 @@
 FROM edgepreview.azurecr.io/azureiotedge/functions-binding:1.0-preview
 
-ENV AzureWebJobsScriptRoot=/home/site/wwwroot
+ENV AzureWebJobsScriptRoot=c:\\approot
 
 ARG EXE_DIR=.
 
-COPY $EXE_DIR/ /home/site/wwwroot
+COPY $EXE_DIR/ c:\\approot

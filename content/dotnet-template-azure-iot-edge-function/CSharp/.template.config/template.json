@@ -1,6 +1,8 @@
 {
     "author": "Summer Sun",
-    "classifications": ["Console"],
+    "classifications": [
+        "Console"
+    ],
     "name": "Azure IoT Edge Function",
     "identity": "Azure.IoT.Edge.Function.CSharp",
     "groupIdentity": "Azure.IoT.Edge.Function",
@@ -11,21 +13,45 @@
     },
     "preferNameDirectory": "true",
     "sourceName": "SampleAzureFunction",
-    "primaryOutputs": [{
-        "path": ""
-    }],
+    "primaryOutputs": [
+        {
+            "path": ""
+        }
+    ],
     "symbols": {
         "linux-x64": {
             "type": "parameter",
             "datatype": "bool",
             "defaultValue": "true"
+        },
+        "windows-nano": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true"
         }
     },
-    "sources":[{
-        "modifiers": [{
-          "condition": "true",
-          "include": [ "bin/*"]
-          }
-        ]
-      }]
+    "sources": [
+        {
+            "modifiers": [
+                {
+                    "condition": "true",
+                    "include": [
+                        "bin/*"
+                    ]
+                },
+                {
+                    "condition": "(!windows-nano)",
+                    "exclude": [
+                        "Docker/windows-nano/*"
+                    ]
+                },
+                {
+                    "condition": "(!linux-x64)",
+                    "exclude": [
+                        "Docker/linux-x64/*"
+                    ]
+                }
+            ]
+        }
+    ]
 }

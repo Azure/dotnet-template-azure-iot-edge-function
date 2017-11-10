@@ -1,4 +1,4 @@
-FROM edgepreview.azurecr.io/azureiotedge/functions-binding:1.0-preview
+FROM microsoft/azureiotedge-functions-binding:1.0-preview
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 

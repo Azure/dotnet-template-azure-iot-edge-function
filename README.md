@@ -1,17 +1,12 @@
 # dotnet-template-azure-iot-edge-function
-> dotnet template to do scaffolding tool for azure iot edge function development.
+> dotnet template to do scaffolding for azure iot edge function development.
 
-This ReadMe consists of two parts:
-- Get Started to introduce how to install the dotnet template nuget package step by step
-- Containerize the function
-
-  The dotnet template sets up all necessary files for you to focus on functionality programming.
-
-  After the coding part completed, following the steps in this part to leverage docker to containerize your azure function so that they can be deployed and monitored by the new features of Azure IoT Edge more straight forward.
+This ReadMe will introduce how to install the dotnet template and then create edge function with the template step by step.
+The template will set up all necessary files for you to focus on functionality programming.
 
 ## Get Started
 
-Make sure you have [.NET Core SDK](https://www.microsoft.com/net/core#windowscmd) and [Nuget](https://www.nuget.org/) installed.
+Make sure you have [.Net Core 2.0 SDK](https://www.microsoft.com/net/download/core) installed.
 
 Run dotnet command to install the template:
 
@@ -47,7 +42,7 @@ MVC ViewStart                                     viewstart                     
 Check out details about the new dotnet template:
 
 ```
-PS D:\dotnet-template-azure-iot-edge-function> dotnet new aziotedgefunction --help
+PS C:\> dotnet new aziotedgefunction --help
 Usage: new [options]
 
 Options:
@@ -66,57 +61,21 @@ Azure IoT Edge Function (C#)
 Author: Summer Sun
 Options:
   -lx|--linux-x64
-                   bool - Optional
-                   Default: true
+                      bool - Optional
+                      Default: true
 
+  -wn|--windows-nano
+                      bool - Optional
+                      Default: true
+
+  -t|--target
+                          All
+                          Config
+                      Default: All
 ```
 
 Now create the azure iot edge function by the template with name:
 
 ```
-dotnet new aziotedgefunction -n <azure_function_name>
+dotnet new aziotedgefunction -n <your_function_name>
 ```
-
-We will support multiple architectures, but now only linux-x64 is ready. So it is set the default.
-
-## Containerize iot edge function
-
-The scaffolding tool sets up the azure iot edge function development environment, generating all necessary files for you.
-
-To run it in docker container, there are several steps to do.
-
-### Install docker
-Ubuntu
-
-https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
-
-Windows 10
-
-https://download.docker.com/win/stable/InstallDocker.msi
-
-MAC
-
-https://store.docker.com/editions/community/docker-ce-desktop-mac
-
-Now navigate to the generated directory path in the first place.
-
-### Setup azure resources
-
-If you have develop experience with Azure, you could skip this part and go ahead to next one.
-
-1. Create an active Azure account
-
-(If you don't have an account, you can create one [free account](http://azure.microsoft.com/pricing/free-trial/) in minutes.)
-
-2. Create an Azure IoT Hub
-
-Reference [How to create an azure iot hub] (https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal) for step by step guidance.
-
-3. Create a device in azure iot hub
-
-Navigate to your iot hub in azure portal, find the **Device Explorer** to **Add** a device in the portal.
-Mark up the device connection string after creating completed.
-
-### Deploy
-
-TBD

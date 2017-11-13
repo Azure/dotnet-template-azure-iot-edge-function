@@ -12,13 +12,26 @@
         "type": "project"
     },
     "preferNameDirectory": "true",
-    "sourceName": "SampleAzureFunction",
+    "sourceName": "SampleFunction",
     "primaryOutputs": [
         {
             "path": ""
         }
     ],
     "symbols": {
+        "target": {
+            "type": "parameter",
+            "datatype": "choice",
+            "defaultValue": "all",
+            "choices": [
+                {
+                    "choice": "all"
+                },
+                {
+                    "choice": "deploy"
+                }
+            ]
+        },
         "linux-x64": {
             "type": "parameter",
             "datatype": "bool",
@@ -28,19 +41,6 @@
             "type": "parameter",
             "datatype": "bool",
             "defaultValue": "true"
-        },
-        "target": {
-            "type": "parameter",
-            "datatype": "choice",
-            "defaultValue": "All",
-            "choices": [
-                {
-                    "choice": "All"
-                },
-                {
-                    "choice": "Config"
-                }
-            ]
         }
     },
     "sources": [
@@ -56,19 +56,19 @@
                     ]
                 },
                 {
-                    "condition": "(windows-nano && target != 'Config')",
+                    "condition": "(windows-nano && target != 'deploy')",
                     "include": [
                         "Docker/windows-nano/*"
                     ]
                 },
                 {
-                    "condition": "(linux-x64 && target != 'Config')",
+                    "condition": "(linux-x64 && target != 'deploy')",
                     "include": [
                         "Docker/linux-x64/*"
                     ]
                 },
                 {
-                    "condition": "(target == 'Config')",
+                    "condition": "(target == 'deploy')",
                     "exclude": [
                         "host.json",
                         "EdgeHubTrigger-Csharp/**/*"

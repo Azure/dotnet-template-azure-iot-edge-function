@@ -12,7 +12,7 @@
         "type": "project"
     },
     "preferNameDirectory": "true",
-    "sourceName": "SampleAzureFunction",
+    "sourceName": "SampleFunction",
     "primaryOutputs": [
         {
             "path": ""

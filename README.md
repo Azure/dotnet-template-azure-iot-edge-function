@@ -73,7 +73,7 @@ Options:
                       bool - Optional
                       Default: true
 ```
-Parameter -t means you want all azure iot edge module files or just a deployment.json file.
+Parameter -t means you want all azure iot edge function files or just a deployment.json file.
 Parameter -lx means you want Dockerfile for linux-x64 or not. So does the -wn for windows-nano.
 
 Now create the azure iot edge function by the template with name:

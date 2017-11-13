@@ -8,7 +8,7 @@ The template will set up all necessary files for you to focus on functionality p
 
 Make sure you have [.Net Core 2.0 SDK](https://www.microsoft.com/net/download/core) installed.
 
-Run dotnet command to install the template:
+Run `dotnet` command to install the template:
 
 ```
 dotnet new -i Microsoft.Azure.IoT.Edge.Function
@@ -76,7 +76,7 @@ Options:
 Parameter `-t` means you want all azure iot edge function files or just a deployment.json file.
 Parameter `-lx` means you want Dockerfile for linux-x64 or not. So does the `-wn` for windows-nano.
 
-Now create the azure iot edge function by the template with name:
+Now create the Azure IoT Edge Function by the template with name:
 
 ```
 dotnet new aziotedgefunction -n <your_function_name>

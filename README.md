@@ -1,7 +1,7 @@
 # dotnet-template-azure-iot-edge-function
-> dotnet template to do scaffolding for azure iot edge function development.
+> dotnet template to do scaffolding for Azure IoT Edge Function development.
 
-This ReadMe will introduce how to install the dotnet template and then create edge function with the template step by step.
+This README will introduce how to install the dotnet template and then create Edge Function with the template step by step.
 The template will set up all necessary files for you to focus on functionality programming.
 
 ## Get Started
@@ -73,8 +73,8 @@ Options:
                       bool - Optional
                       Default: true
 ```
-Parameter -t means you want all azure iot edge function files or just a deployment.json file.
-Parameter -lx means you want Dockerfile for linux-x64 or not. So does the -wn for windows-nano.
+Parameter `-t` means you want all azure iot edge function files or just a deployment.json file.
+Parameter `-lx` means you want Dockerfile for linux-x64 or not. So does the `-wn` for windows-nano.
 
 Now create the azure iot edge function by the template with name:
 

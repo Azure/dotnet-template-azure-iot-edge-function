@@ -1,4 +1,5 @@
 obj/
-bin/
+Test/bin/
+Test/obj/
 *.nupkg
 .vscode

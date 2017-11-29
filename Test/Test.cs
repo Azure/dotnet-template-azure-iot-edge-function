@@ -12,7 +12,7 @@ namespace Test
         private static string RelativeTemplatePath = @"../../../../content/dotnet-template-azure-iot-edge-function/CSharp/";
         public DotNetFixture()
         {
-            Process.Start("dotnet.exe", "new -i " + RelativeTemplatePath).WaitForExit();
+            Process.Start("dotnet", "new -i " + RelativeTemplatePath).WaitForExit();
         }
 
         public void Dispose()
@@ -21,7 +21,7 @@ namespace Test
 
             // uninstall does not work now according to dotnet issue
             // issue link: https://github.com/dotnet/templating/issues/1226
-            Process.Start("dotnet.exe", "new -u " + RelativeTemplatePath).WaitForExit();
+            Process.Start("dotnet", "new -u " + RelativeTemplatePath).WaitForExit();
         }
     }
 
@@ -69,7 +69,7 @@ namespace Test
         {
             var scaffoldName = Path.GetRandomFileName().Replace(".", "").ToString();
             var command = "new aziotedgefunction -n " + scaffoldName + " -t " + target + " -lx " + linux64 + " -wn " + windowsNano;
-            Process.Start("dotnet.exe", command).WaitForExit();
+            Process.Start("dotnet", command).WaitForExit();
             return scaffoldName;
         }
 

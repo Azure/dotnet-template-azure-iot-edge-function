@@ -60,21 +60,11 @@ Options:
 Azure IoT Edge Function (C#)
 Author: Summer Sun
 Options:
-  -t|--target
-                          all
-                          deploy
-                      Default: all
-
-  -lx|--linux-x64
-                      bool - Optional
-                      Default: true
-
-  -wn|--windows-nano
-                      bool - Optional
-                      Default: true
+  -r|--repository
+                      string - Optional
+                      Default: <registry>/<repo-name> 
 ```
-Parameter `-t` means you want all azure iot edge function files or just a deployment.json file.
-Parameter `-lx` means you want Dockerfile for linux-x64 or not. So does the `-wn` for windows-nano.
+Parameter `-r` means the Docker repository to host your Azure IoT Edge module.
 
 Now create the Azure IoT Edge Function by the template with name:
 

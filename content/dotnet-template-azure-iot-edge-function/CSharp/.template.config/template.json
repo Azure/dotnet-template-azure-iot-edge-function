@@ -19,61 +19,16 @@
         }
     ],
     "symbols": {
-        "target": {
+        "repository": {
             "type": "parameter",
-            "datatype": "choice",
-            "defaultValue": "all",
-            "choices": [
-                {
-                    "choice": "all"
-                },
-                {
-                    "choice": "deploy"
-                }
-            ]
-        },
-        "linux-x64": {
-            "type": "parameter",
-            "datatype": "bool",
-            "defaultValue": "true"
-        },
-        "windows-nano": {
-            "type": "parameter",
-            "datatype": "bool",
-            "defaultValue": "true"
+            "defaultValue": "<registry>/<repo-name>",
+            "replaces": "<repository>"
         }
     },
     "sources": [
         {
             "exclude": [
-                "Docker/**/*", ".template.config/*", "bin/*"
-            ],
-            "modifiers": [
-                {
-                    "condition": "(target == 'All')",
-                    "include": [
-                        "bin/*"
-                    ]
-                },
-                {
-                    "condition": "(windows-nano && target != 'deploy')",
-                    "include": [
-                        "Docker/windows-nano/*"
-                    ]
-                },
-                {
-                    "condition": "(linux-x64 && target != 'deploy')",
-                    "include": [
-                        "Docker/linux-x64/*"
-                    ]
-                },
-                {
-                    "condition": "(target == 'deploy')",
-                    "exclude": [
-                        "host.json",
-                        "EdgeHubTrigger-Csharp/**/*"
-                    ]
-                }
+                ".template.config/*"
             ]
         }
     ]

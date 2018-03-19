@@ -9,7 +9,7 @@
         {
             "type": "edgeHub",
             "name": "output",
-            "outputName": "alertOutput",
+            "outputName": "output1",
             "batchSize": 10,
             "direction": "inout"
         }

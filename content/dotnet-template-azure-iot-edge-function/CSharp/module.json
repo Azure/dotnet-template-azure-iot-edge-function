@@ -10,7 +10,8 @@
                 "amd64.debug": "./Dockerfile.amd64.debug",
                 "windows-amd64": "./Dockerfile"
             }
-        }
+        },
+        "buildOptions": []
     },
     "language": "csharp"
 }

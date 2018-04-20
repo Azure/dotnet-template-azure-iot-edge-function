@@ -49,7 +49,8 @@ namespace Test
                     "bin/extensions.json",
                     "module.json",
                     "Dockerfile",
-                    "Dockerfile.amd64.debug"
+                    "Dockerfile.amd64.debug",
+                    "Dockerfile.arm32v7"
                 };
 
             foreach (var file in filesToCheck)

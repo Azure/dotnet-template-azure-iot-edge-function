@@ -1,4 +1,4 @@
-FROM edgebuilds.azurecr.io/microsoft/azureiotedge-functions-binding:13789296-linux-amd64
+FROM edgeshared.azurecr.io/microsoft/azureiotedge-functions-binding:13885920-linux-amd64
 
 ENV AzureWebJobsScriptRoot=/app
 

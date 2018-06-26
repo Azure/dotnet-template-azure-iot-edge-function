@@ -48,7 +48,8 @@ namespace Test
                     "host.json",
                     "bin/extensions.json",
                     "module.json",
-                    "Dockerfile",
+                    "Dockerfile.amd64",
+                    "Dockerfile.windows-amd64",
                     "Dockerfile.amd64.debug",
                     "Dockerfile.arm32v7"
                 };

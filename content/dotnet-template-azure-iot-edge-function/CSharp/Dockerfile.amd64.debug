@@ -1,10 +1,25 @@
-FROM mcr.microsoft.com/azureiotedge-functions-binding:1.0.0-linux-amd64
-
-ENV AzureWebJobsScriptRoot=/app
+# FROM mcr.microsoft.com/azure-functions/dotnet:2.0-linux-amd64 AS base
+FROM mcr.microsoft.com/azure-functions/dotnet:2.0 AS base
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends unzip procps && \
     curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l ~/vsdbg && \
     rm -rf /var/lib/apt/lists/*
 
-COPY . /app
+FROM microsoft/dotnet:2.1-sdk AS build-env
+WORKDIR /app
+
+# COPY *.csproj ./
+COPY *.csproj nuget.config ./
+RUN dotnet restore
+
+COPY . ./
+RUN dotnet publish -c Debug -o out
+
+FROM base
+
+ENV AzureWebJobsScriptRoot=/app
+
+ENV AzureFunctionsJobHost:Logging:Console:IsEnabled=true
+
+COPY --from=build-env /app/out /app

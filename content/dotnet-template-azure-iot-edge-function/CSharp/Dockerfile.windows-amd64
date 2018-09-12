@@ -1,5 +1,18 @@
-FROM mcr.microsoft.com/azureiotedge-functions-binding:1.0.0-windows-amd64
+FROM microsoft/dotnet:2.1-sdk AS build-env
+WORKDIR /app
+
+# COPY *.csproj ./
+COPY *.csproj nuget.config ./
+RUN dotnet restore
+
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# FROM mcr.microsoft.com/azure-functions/dotnet:2.0-nanoserver-1803
+FROM mcr.microsoft.com/azure-functions/dotnet:2.0
 
 ENV AzureWebJobsScriptRoot=/app
 
-COPY . /app
+ENV AzureFunctionsJobHost:Logging:Console:IsEnabled=true
+
+COPY --from=build-env /app/out /app

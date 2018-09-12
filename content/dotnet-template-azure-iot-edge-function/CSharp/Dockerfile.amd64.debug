@@ -9,8 +9,7 @@ RUN apt-get update && \
 FROM microsoft/dotnet:2.1-sdk AS build-env
 WORKDIR /app
 
-# COPY *.csproj ./
-COPY *.csproj nuget.config ./
+COPY *.csproj ./
 RUN dotnet restore
 
 COPY . ./

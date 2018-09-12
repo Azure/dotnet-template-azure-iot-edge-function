@@ -50,7 +50,6 @@ namespace Test
                     // "Dockerfile.arm32v7",
                     "host.json",
                     "module.json",
-                    "nuget.config",
                     $"{scaffoldName}.cs",
                     $"{scaffoldName}.csproj"
                 };

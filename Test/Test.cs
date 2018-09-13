@@ -43,15 +43,15 @@ namespace Test
             Process.Start("dotnet", command).WaitForExit();
 
             var filesToCheck = new List<string>() {
-                    "EdgeHubTrigger-Csharp/run.csx",
-                    "EdgeHubTrigger-Csharp/function.json",
-                    "host.json",
-                    "bin/extensions.json",
-                    "module.json",
+                    ".gitignore",
                     "Dockerfile.amd64",
-                    "Dockerfile.windows-amd64",
                     "Dockerfile.amd64.debug",
-                    "Dockerfile.arm32v7"
+                    // "Dockerfile.windows-amd64",
+                    // "Dockerfile.arm32v7",
+                    "host.json",
+                    "module.json",
+                    $"{scaffoldName}.cs",
+                    $"{scaffoldName}.csproj"
                 };
 
             foreach (var file in filesToCheck)

@@ -1,5 +1,5 @@
 {
-    "author": "Summer Sun",
+    "author": "Microsoft",
     "classifications": [
         "Console"
     ],
@@ -28,7 +28,9 @@
     "sources": [
         {
             "exclude": [
-                ".template.config/*"
+                ".template.config/*",
+                "Dockerfile.arm32v7",
+                "Dockerfile.windows-amd64"
             ]
         }
     ]

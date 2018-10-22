@@ -28,9 +28,7 @@
     "sources": [
         {
             "exclude": [
-                ".template.config/*",
-                "Dockerfile.arm32v7",
-                "Dockerfile.windows-amd64"
+                ".template.config/*"
             ]
         }
     ]

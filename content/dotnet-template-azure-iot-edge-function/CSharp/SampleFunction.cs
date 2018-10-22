@@ -7,6 +7,7 @@ using Microsoft.Azure.Devices.Client;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.EdgeHub;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace Functions.Samples
@@ -17,21 +18,21 @@ namespace Functions.Samples
         public static async Task FilterMessageAndSendMessage(
                     [EdgeHubTrigger("input1")] Message messageReceived,
                     [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,
-                    TraceWriter log)
+                    ILogger logger)
         {
             byte[] messageBytes = messageReceived.GetBytes();
             var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
 
             if (!string.IsNullOrEmpty(messageString))
             {
-                log.Info("Info: Received one non-empty message");
+                logger.LogInformation("Info: Received one non-empty message");
                 var pipeMessage = new Message(messageBytes);
                 foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                 {
                     pipeMessage.Properties.Add(prop.Key, prop.Value);
                 }
                 await output.AddAsync(pipeMessage);
-                log.Info("Info: Piped out the message");
+                logger.LogInformation("Info: Piped out the message");
             }
         }
     }

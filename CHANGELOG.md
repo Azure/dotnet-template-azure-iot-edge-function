@@ -1,5 +1,5 @@
 ### 3.0.0 (2018-10-XX)
-* [Updated] Update for Azure Functions 2.0 model
+* [Updated] Update for the GA of Azure Functions on IoT Edge
 
 ### 2.0.0 (2018-06-27)
 * [Updated] Update base images

@@ -1,4 +1,4 @@
-### 3.0.0 (2018-10-XX)
+### 3.0.0 (2018-11-05)
 * [Updated] Update for the GA of Azure Functions on IoT Edge
 
 ### 2.0.0 (2018-06-27)

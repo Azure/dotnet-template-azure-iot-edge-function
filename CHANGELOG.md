@@ -1,3 +1,6 @@
+### 3.0.1 (2018-11-07)
+* [Updated] Update amd64 base image
+
 ### 3.0.0 (2018-11-05)
 * [Updated] Update for the GA of Azure Functions on IoT Edge
 

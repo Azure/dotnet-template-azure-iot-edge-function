@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azure-functions/dotnet:2.0 AS base
+FROM mcr.microsoft.com/azure-functions/dotnet:2.0-iot-edge AS base
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends unzip procps && \

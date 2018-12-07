@@ -1,4 +1,7 @@
 # dotnet-template-azure-iot-edge-function
+
+[![Nuget](https://img.shields.io/nuget/v/Microsoft.Azure.IoT.Edge.Function.svg)](https://www.nuget.org/packages/Microsoft.Azure.IoT.Edge.Function/)
+
 > dotnet template to do scaffolding for Azure IoT Edge Function development.
 
 This README will introduce how to install the dotnet template and then create Edge Function with the template step by step.

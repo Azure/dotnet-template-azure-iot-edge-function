@@ -1,3 +1,7 @@
+# Changelog
+
+[![Nuget](https://img.shields.io/nuget/v/Microsoft.Azure.IoT.Edge.Function.svg)](https://www.nuget.org/packages/Microsoft.Azure.IoT.Edge.Function/)
+
 ### 3.0.1 (2018-11-07)
 * [Updated] Update amd64 base image
 

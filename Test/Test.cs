@@ -47,6 +47,7 @@ namespace Test
                     "Dockerfile.amd64",
                     "Dockerfile.amd64.debug",
                     "Dockerfile.arm32v7",
+                    "Dockerfile.arm32v7.debug",
                     "Dockerfile.windows-amd64",
                     "host.json",
                     "module.json",

@@ -2,7 +2,7 @@
 
 [![Nuget](https://img.shields.io/nuget/v/Microsoft.Azure.IoT.Edge.Function.svg)](https://www.nuget.org/packages/Microsoft.Azure.IoT.Edge.Function/)
 
-### 3.2.0 (2019-02-XX)
+### 3.2.0 (2019-03-05)
 * [Added] Add arm32v7.debug Dockerfile
 
 ### 3.1.0 (2018-12-18)

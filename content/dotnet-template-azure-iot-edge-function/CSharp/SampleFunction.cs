@@ -26,13 +26,15 @@ namespace Functions.Samples
             if (!string.IsNullOrEmpty(messageString))
             {
                 logger.LogInformation("Info: Received one non-empty message");
-                var pipeMessage = new Message(messageBytes);
-                foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                using (var pipeMessage = new Message(messageBytes))
                 {
-                    pipeMessage.Properties.Add(prop.Key, prop.Value);
+                    foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                    {
+                        pipeMessage.Properties.Add(prop.Key, prop.Value);
+                    }
+                    await output.AddAsync(pipeMessage);
+                    logger.LogInformation("Info: Piped out the message");
                 }
-                await output.AddAsync(pipeMessage);
-                logger.LogInformation("Info: Piped out the message");
             }
         }
     }

@@ -44,6 +44,7 @@ namespace Test
 
             var filesToCheck = new List<string>() {
                     ".gitignore",
+                    ".dockerignore",
                     "Dockerfile.amd64",
                     "Dockerfile.amd64.debug",
                     "Dockerfile.arm32v7",
@@ -59,8 +60,7 @@ namespace Test
             {
                 Assert.True(File.Exists(Path.Combine(scaffoldName, file)));
             }
-            Assert.Equal(filesToCheck.Count, Directory.GetFiles(scaffoldName, "*", SearchOption.AllDirectories).Length);
-
+            Assert.Equal(filesToCheck.Count, Directory.GetFiles(scaffoldName, "*", SearchOption.AllDirectories).Where(filename => !filename.StartsWith(Path.Combine(scaffoldName, "obj"))).Count());
             string text = File.ReadAllText(Path.Combine(scaffoldName, "module.json"));
             Assert.Contains(repository, text);
 

@@ -3,7 +3,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Microsoft.Azure.IoT.Edge.Function.svg)](https://www.nuget.org/packages/Microsoft.Azure.IoT.Edge.Function/)
 
 ### 3.5.0 (2019-12-20)
-* [Updated] Pull base image from microsoft container registry
+* [Updated] Pull base image from Microsoft Container Registry
 
 ### 3.4.0 (2019-11-01)
 * [Added] Add .dockerignore to ignore bin and obj folder

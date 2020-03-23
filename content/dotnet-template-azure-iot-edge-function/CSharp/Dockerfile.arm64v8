@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build-env
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster-arm64v8 AS build-env
 WORKDIR /app
 
 COPY *.csproj ./

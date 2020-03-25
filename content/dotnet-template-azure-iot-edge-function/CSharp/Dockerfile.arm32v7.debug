@@ -1,11 +1,11 @@
-FROM mcr.microsoft.com/azure-functions/dotnet:2.0-arm32v7 AS base
+FROM mcr.microsoft.com/azure-functions/dotnet:3.0 AS base
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends unzip procps curl && \
     curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l ~/vsdbg && \
     rm -rf /var/lib/apt/lists/*
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build-env
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster-arm32v7 AS build-env
 WORKDIR /app
 
 COPY *.csproj ./

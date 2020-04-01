@@ -2,7 +2,7 @@
 <package>
     <metadata>
     <id>Microsoft.Azure.IoT.Edge.Function</id>
-    <version>3.6.0-RC</version>
+    <version>3.5.0</version>
     <title>Azure IoT Edge Function</title>
     <authors>Microsoft</authors>
     <owners>microsoft, nugetazureiotedge</owners>

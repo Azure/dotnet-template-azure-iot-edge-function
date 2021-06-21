@@ -2,6 +2,9 @@
 
 [![Nuget](https://img.shields.io/nuget/v/Microsoft.Azure.IoT.Edge.Function.svg)](https://www.nuget.org/packages/Microsoft.Azure.IoT.Edge.Function/)
 
+### 3.5.1 (2021-06-18)
+* [Updated] Upgrade to the latest client SDK for .netcore 2.0
+
 ### 3.5.0 (2019-12-20)
 * [Updated] Pull base image from Microsoft Container Registry
 

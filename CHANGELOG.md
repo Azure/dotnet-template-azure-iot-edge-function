@@ -2,6 +2,9 @@
 
 [![Nuget](https://img.shields.io/nuget/v/Microsoft.Azure.IoT.Edge.Function.svg)](https://www.nuget.org/packages/Microsoft.Azure.IoT.Edge.Function/)
 
+### 3.5.2 (2021-08-23)
+* [Updated] Updated the nuget template json to match the schema
+
 ### 3.5.1 (2021-06-18)
 * [Updated] Upgrade to the latest client SDK for .netcore 2.0
 

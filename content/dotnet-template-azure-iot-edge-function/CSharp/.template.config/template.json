@@ -1,4 +1,5 @@
 {
+    "$schema": "http://json.schemastore.org/template",
     "author": "Microsoft",
     "classifications": [
         "Console"
@@ -11,11 +12,11 @@
         "language": "C#",
         "type": "project"
     },
-    "preferNameDirectory": "true",
+    "preferNameDirectory": true,
     "sourceName": "SampleFunction",
     "primaryOutputs": [
         {
-            "path": ""
+            "path": "."
         }
     ],
     "symbols": {

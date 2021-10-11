@@ -36,6 +36,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
             files: ./**/*.nupkg   
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          tags: true
+       

@@ -80,7 +80,7 @@ steps:
     isPreRelease: false
     addChangeLog: false
     
- - task: PowerShell@1
+- task: PowerShell@1
   displayName: 'PowerShell Script'
   inputs:
     scriptType: 'inlineScript'

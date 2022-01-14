@@ -79,6 +79,8 @@ steps:
     addChangeLog: false
     
 - task: Bash@3
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+  displayName: "nuget Publishing"
   inputs:
     targetType: 'inline'
     script: |

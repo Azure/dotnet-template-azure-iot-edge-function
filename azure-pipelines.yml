@@ -34,7 +34,7 @@ steps:
     
 - task: EsrpCodeSigning@1
   inputs:
-    ConnectedServiceName: 'IoT Edge NuGet Sign - DDE'
+    ConnectedServiceName: 'Templates-Azure-IoT-Edge Sign'
     FolderPath: '$(Build.ArtifactStagingDirectory)'
     Pattern: '*.nupkg'
     signConfigType: 'inlineSignParams'
@@ -57,15 +57,13 @@ steps:
       ]
     SessionTimeout: '20'
     MaxConcurrency: '50'
-    MaxRetryAttempts: '5'    
+    MaxRetryAttempts: '5'
 
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-    
-    
 
 - task: GitHubRelease@0
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
@@ -88,11 +86,10 @@ steps:
     workingFolder: '$(Build.ArtifactStagingDirectory)'
     inlineScript: |
       param($apikey)
-      
       echo $env:BUILD_SOURCEBRANCH
       if ($env:BUILD_SOURCEBRANCH -match "^refs/tags/v?[0-9]+\.[0-9]+\.[0-9]+$") {
           echo "starting NuGet Push"
-          nuget push *.nupkg $apikey -Source https://api.nuget.org/v3/index.json
+          # nuget push *.nupkg $apikey -Source https://api.nuget.org/v3/index.json
       } else {
           echo "skipping NuGet Push"
       }

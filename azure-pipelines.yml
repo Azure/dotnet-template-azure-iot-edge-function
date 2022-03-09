@@ -70,7 +70,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $PACKAGEVERSION = $([xml]$(Get-Content $Microsoft.Azure.IoT.Edge.Function.nuspec) | ForEach-Object package).metadata.version;
+      $PACKAGEVERSION = $([xml]$(Get-Content Microsoft.Azure.IoT.Edge.Function.nuspec) | ForEach-Object package).metadata.version;
       Write-Host "##vso[task.setvariable variable=PACKAGEVERSION;]$PACKAGEVERSION"
     pwsh: true
 

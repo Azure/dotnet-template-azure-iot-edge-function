@@ -32,6 +32,7 @@ steps:
   displayName: 'SBOM Generation Task'
   inputs:
     BuildDropPath: '$(Build.ArtifactStagingDirectory)'
+
 - task: Bash@3
   inputs:
     targetType: 'inline'
@@ -65,6 +66,7 @@ steps:
     SessionTimeout: '20'
     MaxConcurrency: '50'
     MaxRetryAttempts: '5'
+    
 - task: PowerShell@2
   condition: and(succeeded(), eq(variables['NUGET_PUBLISH_FLAG'], 'true'))
   inputs:
@@ -134,4 +136,4 @@ steps:
     script: |
       export AZCOPY_SPA_CLIENT_SECRET=$(TEST-CLIENT-SECRET)
       azcopy login --service-principal --application-id $(TEST_APPID)
-      azcopy copy "$(Build.SourcesDirectory)/Microsoft.Azure.IoT.Edge.Function-$(PACKAGEVERSION).nupkg"  "https://sadevicelabsetup.blob.core.windows.net/test/azureiotedge/function/$(PACKAGEVERSION)
+      azcopy copy "$(Build.SourcesDirectory)/Microsoft.Azure.IoT.Edge.Function-$(PACKAGEVERSION).nupkg"  "https://sadevicelabsetup.blob.core.windows.net/test/azureiotedge/function/$(PACKAGEVERSION)/Microsoft.Azure.IoT.Edge.Function-$(PACKAGEVERSION).nupkg"

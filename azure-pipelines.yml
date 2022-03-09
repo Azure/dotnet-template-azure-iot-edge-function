@@ -95,20 +95,6 @@ steps:
     assets: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     addChangeLog: false
 
-# - task: Bash@3
-#   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
-#   displayName: "nuget Publishing"
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       echo $(Build.SourceBranch) 
-#       if [[ $(Build.SourceBranch) =~ ^refs/tags/v?[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-#           echo "starting NuGet Push"
-#           nuget push *.nupkg $(apikey) -Source https://api.nuget.org/v3/index.json
-#       else
-#           echo "skipping NuGet Push"
-#       fi
-#     workingDirectory: '$(Build.ArtifactStagingDirectory)'
 - task: Bash@3
   condition: and(succeeded(), eq(variables['NUGET_PUBLISH_FLAG'], 'true'))
   inputs:
@@ -118,22 +104,13 @@ steps:
       tar -xvf downloadazcopy-v10-linux
       sudo cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
 
-# - task: Bash@3
-#   displayName: 'Uplaod to Blob'
-#   condition: and(succeeded(), eq(variables['NUGET_PUBLISH_FLAG'], 'true'))
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       export AZCOPY_SPA_CLIENT_SECRET=$(AZURESDKPARTNERDROPS-SERVICE-PRINCIPAL-KEY)
-#       azcopy login --service-principal --application-id $(APPID)
-#       azcopy copy "$(Build.SourcesDirectory)/Microsoft.Azure.IoT.Edge.Function-$(PACKAGEVERSION).nupkg"  "https://azuresdkpartnerdrops.blob.core.windows.net/drops/azureiotedge/npm/$(PACKAGEVERSION)/Microsoft.Azure.IoT.Edge.Function-$(PACKAGEVERSION).nupkg"
-
 - task: Bash@3
   displayName: 'Uplaod to Blob'
   condition: and(succeeded(), eq(variables['NUGET_PUBLISH_FLAG'], 'true'))
   inputs:
     targetType: 'inline'
     script: |
-      export AZCOPY_SPA_CLIENT_SECRET=$(TEST-CLIENT-SECRET)
-      azcopy login --service-principal --application-id $(TEST_APPID)
-      azcopy copy "$(Build.ArtifactStagingDirectory)/Microsoft.Azure.IoT.Edge.Function.$(PACKAGEVERSION).nupkg"  "https://sadevicelabsetup.blob.core.windows.net/test/azureiotedge/function/$(PACKAGEVERSION)/Microsoft.Azure.IoT.Edge.Function.$(PACKAGEVERSION).nupkg"
+      export AZCOPY_SPA_CLIENT_SECRET=$(AZURESDKPARTNERDROPS-SERVICE-PRINCIPAL-KEY)
+      azcopy login --service-principal --application-id $(APPID)
+      azcopy copy "$(Build.ArtifactStagingDirectory)/Microsoft.Azure.IoT.Edge.Function.$(PACKAGEVERSION).nupkg"  "https://azuresdkpartnerdrops.blob.core.windows.net/drops/azure-iot-edge-tools/dotnet/$(PACKAGEVERSION)/Microsoft.Azure.IoT.Edge.Function.$(PACKAGEVERSION).nupkg"
+      

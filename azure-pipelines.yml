@@ -130,7 +130,7 @@ steps:
 
 - task: Bash@3
   displayName: 'Uplaod to Blob'
-  # condition: and(succeeded(), eq(variables['NUGET_PUBLISH_FLAG'], 'true'))
+  condition: and(succeeded(), eq(variables['NUGET_PUBLISH_FLAG'], 'true'))
   inputs:
     targetType: 'inline'
     script: |

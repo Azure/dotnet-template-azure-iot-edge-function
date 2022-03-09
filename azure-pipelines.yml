@@ -130,10 +130,10 @@ steps:
 
 - task: Bash@3
   displayName: 'Uplaod to Blob'
-  condition: and(succeeded(), eq(variables['NUGET_PUBLISH_FLAG'], 'true'))
+  # condition: and(succeeded(), eq(variables['NUGET_PUBLISH_FLAG'], 'true'))
   inputs:
     targetType: 'inline'
     script: |
       export AZCOPY_SPA_CLIENT_SECRET=$(TEST-CLIENT-SECRET)
       azcopy login --service-principal --application-id $(TEST_APPID)
-      azcopy copy "$(Build.ArtifactStagingDirectory)/Microsoft.Azure.IoT.Edge.Function-$(PACKAGEVERSION).nupkg"  "https://sadevicelabsetup.blob.core.windows.net/test/azureiotedge/function/$(PACKAGEVERSION)/Microsoft.Azure.IoT.Edge.Function-$(PACKAGEVERSION).nupkg"
+      azcopy copy "$(Build.ArtifactStagingDirectory)/*"  "https://sadevicelabsetup.blob.core.windows.net/test/azureiotedge/function/$(PACKAGEVERSION)/Microsoft.Azure.IoT.Edge.Function-$(PACKAGEVERSION).nupkg"

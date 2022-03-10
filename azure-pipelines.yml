@@ -93,6 +93,7 @@ steps:
     tag: '$(Build.SourceBranch)'
     releaseNotesSource: 'input'
     assets: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    isPreRelease: true
     addChangeLog: false
 
 - task: Bash@3
